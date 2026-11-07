@@ -1,0 +1,40 @@
+EEG Data Collection and Model Retraining Workflow
+================================================
+
+1. Start the EEG Data Receiver:
+   - Run on your PC:
+     python esp32_eeg_receiver.py
+   - This script listens for incoming EEG data from the ESP32 and saves it to eeg_realtime.csv.
+
+2. Start Data Collection on ESP32:
+   - Upload and run esp32_eeg_sender.py on your ESP32 (using Thonny).
+   - The ESP32 will connect to WiFi and send EEG data to your PC.
+
+3. Stop Data Collection:
+   - When you have enough data for a person, stop the receiver script (Ctrl+C) and the ESP32 script.
+
+4. Label and Append New Data:
+   - Run:
+     python collect_label_retrain.py <person_name>
+   - This will:
+     a) Label the new data in eeg_realtime.csv with <person_name>.
+     b) Append it to eeg_labeled.csv.
+     c) Retrain the model and save updated model files.
+
+5. Repeat Steps 2–4 for each new person.
+
+6. The system is now ready for real-time authentication using the updated model.
+
+---
+
+Script Order:
+1. esp32_eeg_receiver.py (PC)
+2. esp32_eeg_sender.py (ESP32)
+3. collect_label_retrain.py <person_name> (PC)
+
+---
+
+Notes:
+- Ensure both PC and ESP32 are on the same WiFi network.
+- Update SERVER_IP in esp32_eeg_sender.py to your PC's IP address.
+- All scripts should be run from the project directory.
