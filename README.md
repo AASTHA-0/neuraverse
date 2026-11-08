@@ -84,9 +84,13 @@ Hardware notes: the current prototype reads the ESP32 ADC directly. Clean EEG ac
 
 ## Dataset
 
-- **Source:** pre-recorded EEG
-- **Size:** 8,064 samples, 32 channels; 6 channels used (Fp1, Fp2, O1, O2, F3, F4)
-- **Differential pairs:** Fp1-Fp2, O1-O2, F3-F4
+- Source: DEAP (Database for Emotion Analysis using Physiological Signals),
+  Koelstra et al., IEEE Trans. Affective Computing, 2012. Not included in this
+  repo; request access from the DEAP authors.
+- It is an emotion-recognition dataset, not an identification dataset. Here it is
+  used only to test the pipeline, with simulated identity labels.
+- Used: one pre-processed trial (8,064 samples, 32 channels, 128 Hz); 6 channels
+  (Fp1, Fp2, O1, O2, F3, F4).
 
 ---
 
